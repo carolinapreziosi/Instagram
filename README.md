@@ -6,7 +6,7 @@ Para el servidor utilice la libreria express.
 
 Para poder levantarlo es necesario tener NodeJS.
 
-- Instalar las dependencias de las carpetas "backend" y "fronted" con: npm install.
+- Instalar las dependencias de las carpetas "backend" y "frontend" con: npm install.
 - Correr el proyecto con: npm start.
 
 - Por defecto el proyecto corre en http://localhost:3000/

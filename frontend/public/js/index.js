@@ -46,12 +46,11 @@ let arrayPublications = database;
         dislikeBtn.addEventListener('click',async function(){
 
             //Hago cosas antes de request a backend
-            let axiosResponse = await axios.put('http://localhost:3002/publications')
-
+            let axiosResponse = await axios.get('http://localhost:3002/publications')
             let publicacionBackend = axiosResponse.data;
             console.log(publicacionBackend);
-            //Hago cosas con la respuesta que me da el backend
 
+            //Hago cosas con la respuesta que me da el backend
             likesCount.innerText++;
             database[dislikeBtn.id].likes++;
             dislikeBtn.style.display = "none";

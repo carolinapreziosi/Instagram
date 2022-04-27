@@ -36,10 +36,10 @@ let arrayPublications = database;
         likesCount.innerText = arrayPublications[i].likes;
         likesCount.setAttribute("id",i);
 
-        dislikeBtn.innerText = arrayPublications[i].button;
+        dislikeBtn.innerText = arrayPublications[i].likeBtn;
         dislikeBtn.setAttribute("id",i)
 
-        likeBtn.innerText = arrayPublications[i].button2;
+        likeBtn.innerText = arrayPublications[i].dislikeBtn;
         likeBtn.setAttribute("id",i)
         likeBtn.style.display="none"
 
@@ -102,10 +102,10 @@ function uploadPublication(newPublication){
     likesCount.innerText = newPublication.likes;
     likesCount.setAttribute("id",newPublication.id - 1 );
 
-    dislikeBtn.innerText = newPublication.button;
+    dislikeBtn.innerText = newPublication.likeBtn;
     dislikeBtn.setAttribute("id",newPublication.id - 1)
 
-    likeBtn.innerText = newPublication.button2;
+    likeBtn.innerText = newPublication.dislikeBtn;
     likeBtn.setAttribute("id",newPublication.id - 1)
     likeBtn.style.display="none"
 

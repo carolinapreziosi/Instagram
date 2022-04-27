@@ -13,24 +13,24 @@ let publications = [
         img: 'https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         texto: 'El descanso',
         likes: 5,
-        button: " ",
-        button2:''
+        likeBtn: " ",
+        dislikeBtn:''
     },
     {
         id: 2,
         img: 'https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         texto: 'Paz',
         likes: 8,
-        button: " ",
-        button2:''
+        likeBtn: " ",
+        dislikeBtn:''
     },
     {
         id: 3,
         img: 'https://images.pexels.com/photos/9470498/pexels-photo-9470498.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         texto: 'Palmeras',
         likes: 9,
-        button: " ",
-        button2:'' 
+        likeBtn: " ",
+        dislikeBtn:'' 
     }
 ]
 

@@ -1,7 +1,7 @@
 /**
  * @description Recorro el array y muestro las imagenes en la pagina
  */
-async function getPublications (){
+async function getPublications(){
     console.log("hola");
     let axiosResponse = await axios.get('http://localhost:3002/publications');
     console.log("AxiosResponse",axiosResponse.data);
@@ -43,7 +43,7 @@ let arrayPublications = database;
         likeBtn.setAttribute("id",i)
         likeBtn.style.display="none"
 
-        dislikeBtn.addEventListener('click',function(){
+        dislikeBtn.addEventListener('click',async function(){
 
             //Hago cosas antes de request a backend
             let axiosResponse = await axios.put('http://localhost:3002/publications')
@@ -82,10 +82,9 @@ let arrayPublications = database;
 
 /**
  * @description Subo una nueva publicacion a la pagina
- * @param {number} idPublication
+ * @param {object} newPublication
  */
-function uploadPublication(idPublication){
-    let publication = database.find(element => element.id == idPublication)
+function uploadPublication(newPublication){
     let divContainer = document.getElementById("listPublications")
 
 
@@ -96,18 +95,18 @@ function uploadPublication(idPublication){
     let likeBtn = document.createElement('button');
 
     let divElement = document.createElement('div')
-    console.log(publication)
-    imgElement.src = publication.img;
-    descriptionImage.innerText = publication.texto;
+    console.log(newPublication)
+    imgElement.src = newPublication.img;
+    descriptionImage.innerText = newPublication.texto;
 
-    likesCount.innerText = publication.likes;
-    likesCount.setAttribute("id",publication.id - 1 );
+    likesCount.innerText = newPublication.likes;
+    likesCount.setAttribute("id",newPublication.id - 1 );
 
-    dislikeBtn.innerText = publication.button;
-    dislikeBtn.setAttribute("id",publication.id - 1)
+    dislikeBtn.innerText = newPublication.button;
+    dislikeBtn.setAttribute("id",newPublication.id - 1)
 
-    likeBtn.innerText = publication.button2;
-    likeBtn.setAttribute("id",publication.id - 1)
+    likeBtn.innerText = newPublication.button2;
+    likeBtn.setAttribute("id",newPublication.id - 1)
     likeBtn.style.display="none"
 
     dislikeBtn.addEventListener('click',function(){
@@ -137,22 +136,16 @@ function uploadPublication(idPublication){
     //agrego todo al div mayor "contenedor"
     divContainer.appendChild(divElement);
 
-
 }
 
 /**
  * @description crea una nueva publicacion
  */
-function createPublication() {
+async function createPublication() {
     let imageUrl = document.getElementById('image-url').value
     let textDescripcion = document.getElementById('text-descripcion').value
-    let idPublication = database.length +1
-    let newPublication = {id: idPublication ,img:imageUrl, texto:textDescripcion, likes:0, button:'',button2:''}
-
+    let body = {id: 0 ,img:imageUrl, texto:textDescripcion, likes:0, likeBtn:'',dislikeBtn:''}
     //Post al backend
-    let body = newPublication
     let axiosResponse = await axios.post('http://localhost:3002/publications', body)
-
-    console.log(database)
-    uploadPublication(idPublication)
+    uploadPublication(axiosResponse.data)
 }

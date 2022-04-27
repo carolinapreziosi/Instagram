@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Instagram</title>
+    <link rel = "icon" href= "images/insta-icon.png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Estilos CSS-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="modelstyles.css">
+
+    <script src="https://kit.fontawesome.com/476996d75a.js" crossorigin="anonymous"></script>
+
+     <!-- Axios-->
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body onload="getPublications()">
+<div class="container">
+    <h1> Instagram Challenge</h1>
+    <i class="fab fa-instagram"></i>
+    <div id="listPublications"> </div>
+    <div class="button"></div>
+
+    <div>
+
+        <a href="#openModal" class="linkOpenModal"><button>+</button></a>
+
+        <div id="openModal" class="modal">
+            <div class="modal-contenido">
+                <h1 class="color"> Nueva Publicación </h1>
+                <form action="">
+                    <label class="form-label" for="">Ingrese URL de la imagen</label>
+                    <input class="form-input" type="text" name="" id="image-url" placeholder="https://images.pexels.com">
+                    <label class="form-label" for="">Descripción</label>
+                    <input class="form-input" type="text" name="" id="text-descripcion">
+                </form>
+                <button class="form-submit" id="publicar" onclick="createPublication()"><a class="enlace" href="#">PUBLICAR</a></button>
+                <button class="form-submit" id=""><a class="enlace" href="#">CANCELAR</a></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h4> By Carolina F.Preziosi</h4>
+    </footer>
+</div>
+<script src="js/index.js"></script>
+
+</body>
+</html>
+
